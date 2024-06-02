@@ -2,6 +2,6 @@
     To Do List
 </h3>
 
-<p>
-    By Yiqing Li
-</p>
+{% for task in tasks%}
+    <p>{{task}}</p>
+{% endfor %}

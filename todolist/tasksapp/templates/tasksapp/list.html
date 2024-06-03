@@ -2,6 +2,11 @@
     To Do List
 </h3>
 
+<form>
+    {{forms.title}}
+    <input type='submit', name='create task'>
+</form>
+
 {% for task in tasks%}
     <p>{{task}}</p>
 {% endfor %}

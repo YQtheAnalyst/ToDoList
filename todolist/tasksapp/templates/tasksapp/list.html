@@ -2,7 +2,9 @@
     To Do List
 </h3>
 
-<form>
+{% comment %} whatever you submit, it will send you back to the base url {% endcomment %}
+<form method="POST", action="/">
+    {% csrf_token %}
     {{forms.title}}
     <input type='submit', name='create task'>
 </form>

@@ -20,3 +20,22 @@ def index(request):
     context = {'tasks': tasks, 'forms': form}
 
     return render(request, 'tasksapp/list.html', context)
+
+
+def updateTask(request, pk):
+    tasks = task.objects.get(id=pk)
+
+    form = TaskForm(instance=tasks) # ?
+
+    if request.method == "POST":
+        form = TaskForm(request.POST, instance=tasks)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    context = {'forms':form}
+
+    return render(request, 'tasksapp/update_task.html', context)
+
+# Make queries once the model is built:
+# https://docs.djangoproject.com/en/5.0/topics/db/queries/

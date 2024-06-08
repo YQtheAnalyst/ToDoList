@@ -10,14 +10,14 @@
 </form>
 
 {% for task in tasks%}
-    <a href="{% url 'update_task' task.id %}">Update</a>
-    <a href="{% url 'delete' task.id %}">Delete</a>
+    <div>
+        <a href="{% url 'update_task' task.id %}">Update</a>
+        <a href="{% url 'delete' task.id %}">Delete</a>
 
-    {% if task.complete == True%}
-    <strike>{{task}}</strike>
-    {% else %}
-    <span>{{task}}</span>
-    {% endif %}
-
-    <br>
+        {% if task.complete == True%}
+        <strike>{{task}}</strike>
+        {% else %}
+        <span>{{task}}</span>
+        {% endif %}
+    </div>
 {% endfor %}

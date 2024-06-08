@@ -39,3 +39,9 @@ def updateTask(request, pk):
 
 # Make queries once the model is built:
 # https://docs.djangoproject.com/en/5.0/topics/db/queries/
+
+def delete(request, pk):
+    item = task.objects.get(id=pk)
+    context = {'item':item}
+
+    return render(request, 'tasksapp/delete.html', context)
